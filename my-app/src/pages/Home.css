@@ -154,7 +154,7 @@ footer h2 {
     
 }
 
-@media only screen and (min-width: 768px) and (max-width: 931px) {
+@media only screen and (min-width: 768px) and (max-width: 1800px) {
     .button {
         margin: 10px;
     }
