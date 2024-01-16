@@ -9,12 +9,12 @@ html, body {
     min-height: 100%;
 }
 
-body{
+body {
     background-color: #e9e9e9;
 }
 
 header {
-    /*background-color: #5b6c7e;*/
+
     background-color: #0f0f33;
     color: #e9e9e9; 
     height: 120px;
@@ -112,9 +112,8 @@ section p {
 }
 
 footer {
-    /*background-color: #5b6c7e;*/
     background-color: #0f0f33; 
-    color: #fff; 
+    color: #e9e9e9; 
     height: 40px;
     width: 100%;
     position: fixed;

@@ -1,9 +1,9 @@
 import React from "react";
 
-const Lab_dc = () => {
+const LabDc = () => {
     return (
         <h1>Hello World 2</h1>
     )
 };
 
-export default Lab_dc;
+export default LabDc;

@@ -5,7 +5,8 @@
     font-family: Arial, sans-serif;
 }
 
-body {
+.containerForm {
+    display: flex;
     background-color: #0f0f33;
 }
 
@@ -13,7 +14,7 @@ form {
     display: flex;
     flex-direction: column;
     max-width: 400px;
-    color: white;
+    color: #e9e9e9;
 }
 
 form h1 {
@@ -48,4 +49,14 @@ label input, select {
     text-align: center;
     width: 200px;
     color: #0f0f33;
+}
+
+.graficos {
+    color: #e9e9e9;
+    padding-top: 60px;
+}
+
+.graficos img {
+    margin-top: 20px;
+    max-width: 1000px;
 }
