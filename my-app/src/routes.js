@@ -15,7 +15,4 @@ const AppRoutes = () => {
    )
 }
 
-<BrowserRouter basename="/virtual-asphalt-lab">
-</BrowserRouter>
-
 export default AppRoutes
