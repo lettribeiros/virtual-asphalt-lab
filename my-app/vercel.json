@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "my-app", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "/favicon.ico", "dest": "/my-app/public/favicon.ico" },
+      { "handle": "filesystem" },
+      { "src": "/.*", "dest": "/my-app/public/index.html" }
+    ]
+  }
+  
