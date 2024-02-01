@@ -8,7 +8,7 @@ import LabDc from "./pages/LabDc";
 const AppRoutes = () => {
    return(
        <Routes>
-           <Route path="/virtual-asphalt-lab" element={<Home />} />
+           <Route path="/" element={<Home />} />
             <Route path="/lab-composicao-desempenho" element={<LabCd />} />
             <Route path="/lab-desempenho-composicao" element={<LabDc />} />
        </Routes>
