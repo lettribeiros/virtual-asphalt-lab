@@ -9,8 +9,8 @@ const AppRoutes = () => {
    return(
        <Routes>
            <Route path="/virtual-asphalt-lab" element={<Home />} />
-            <Route path="/virtual-asphalt-lab/lab-composicao-desempenho" element={<LabCd />} />
-            <Route path="/virtual-asphalt-lab/lab-desempenho-composicao" element={<LabDc />} />
+            <Route path="/lab-composicao-desempenho" element={<LabCd />} />
+            <Route path="/lab-desempenho-composicao" element={<LabDc />} />
        </Routes>
    )
 }
