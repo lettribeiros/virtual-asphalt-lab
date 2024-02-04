@@ -109,7 +109,15 @@ const LabCd = () => {
         return (
           <div className="containerLabCd">
             <div className="headerLab">
-              <button className="toggleFormButton" onClick={(e) => { e.stopPropagation(); setExibirFormulario(!exibirFormulario); }}>
+              <button
+               className="toggleFormButton" 
+               onTouchStart={(e) => {
+                if (!e.touches || e.touches.length === 1) {
+                  e.stopPropagation();
+                }
+              }}
+              onClick={() => setExibirFormulario(!exibirFormulario)}
+               >
                 <img src={exibirFormulario ? seta2 : seta1} alt="setas"></img>
               </button>
 
