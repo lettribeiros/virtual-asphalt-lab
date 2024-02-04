@@ -25,7 +25,7 @@ const LabCd = () => {
 
       const [graficos, setGraficos] = useState(null);
       const [mostrarImagens, setMostrarImagens] = useState(false);
-      const [exibirFormulario, setExibirFormulario] = useState(true);
+      // const [exibirFormulario, setExibirFormulario] = useState(true);
       const [carregando, setCarregando] = useState(false);
       const [erroMensagem, setErroMensagem] = useState(null);
       const [formularioAberto, setFormularioAberto] = useState(true);
