@@ -112,7 +112,7 @@ const LabCd = () => {
           <div className="containerLabCd">
             <div className="headerLab">
             <button className="toggleFormButton" onClick={() => setFormularioAberto(!formularioAberto)}>
-                <img src={exibirFormulario ? seta2 : seta1} alt="setas"></img>
+                <img src={formularioAberto ? seta2 : seta1} alt="setas"></img>
               </button>
 
               <Link to="/" className="buttonHome">
@@ -121,7 +121,7 @@ const LabCd = () => {
               </Link>
             </div>
             <div className="containerForm">
-              {exibirFormulario && (
+              {formularioAberto && (
                  <form onSubmit={handleSubmit}>
             
                   <h1>Inputs</h1>
