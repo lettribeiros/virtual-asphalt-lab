@@ -25,8 +25,8 @@ function Home() {
             <div id='lab' className='lab'>
             <h2>Laboratório</h2>
             <div className="button-container">
-                <Link to='/lab-composicao-desempenho' target="_blank" className="button">Constituição &rarr; Desempenho Mecânico</Link>
-                <Link to='/lab-desempenho-composicao' target="_blank" className="button">Desempenho Mecânico &rarr; Constituição</Link>
+                <Link to='/lab-composicao-desempenho'  className="button">Constituição &rarr; Desempenho Mecânico</Link>
+                <Link to='/lab-desempenho-composicao'  className="button">Desempenho Mecânico &rarr; Constituição</Link>
             </div>
             </div>
 

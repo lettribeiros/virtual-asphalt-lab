@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import api from '../services/api'
 import ImagemGrafico from "../components/ImagemGrafico";
 import seta1 from "../assets/seta1.png"
@@ -98,135 +99,127 @@ const LabCd = () => {
           }, []);
 
         return (
-          <div className="containerForm">
-            <button className="toggleFormButton" onClick={() => setExibirFormulario(!exibirFormulario)}>
-            <img src={exibirFormulario ? seta2 : seta1} alt="setas"></img>
-            </button>
-            {exibirFormulario && (  
-               <form onSubmit={handleSubmit}>
-                
-                <h1>Inputs</h1>
+          <div className="containerLabCd">
+            <div className="headerLab">
+              <button className="toggleFormButton" onClick={() => setExibirFormulario(!exibirFormulario)}>
+                <img src={exibirFormulario ? seta2 : seta1} alt="setas"></img>
+              </button>
 
-              <label>
-              Bituminous matrix
-                <select
-                  type="text"
-                  name="bituminous_matrix"
-                  value={dadosFormulario.bituminous_matrix}
-                  onChange={handleChange}>
-                    <option value='CAP-30/45'>CAP-30/45</option>
-                    <option value='CAP-50/70'>CAP-50/70</option>
-                </select>    
-              </label>
-
-              <label>
-              Pass through sieve #3/8 (%)
-                <input
-                  type="number"
-                  name="sieve_3_8"
-                  value={dadosFormulario.sieve_3_8}
-                  onChange={handleChange}
-                />
-              </label>
-
-              <label>
-              Pass through sieve #4 (%)
-                <input
-                  type="number"
-                  name="sieve_4"
-                  value={dadosFormulario.sieve_4}
-                  onChange={handleChange}
-                />
-              </label>
-
-              <label>
-              Pass through sieve #200 (%)
-                <input
-                  type="number"
-                  name="sieve_200"
-                  value={dadosFormulario.sieve_200}
-                  onChange={handleChange}
-                />
-              </label>
-
-              <label>
-              Nominal maximum size (mm)
-                <input
-                  type="number"
-                  name="nominal_maximum_size"
-                  value={dadosFormulario.nominal_maximum_size}
-                  onChange={handleChange}
-                />
-              </label>
-
-              <label>
-              Binder content (%)
-                <input
-                  type="number"
-                  name="binder_content"
-                  value={dadosFormulario.binder_content}
-                  onChange={handleChange}
-                />
-              </label>
-
-              <label>
-              Binder viscosity ()
-                <input
-                  type="number"
-                  name="binder_viscosity"
-                  value={dadosFormulario.binder_viscosity}
-                  onChange={handleChange}
-                />
-              </label>
-
-              <label>
-              Penetration
-                <input
-                  type="number"
-                  name="penetration"
-                  value={dadosFormulario.penetration}
-                  onChange={handleChange}
-                />
-              </label>
-
-              <label>
-              Softening point
-                <input
-                  type="number"
-                  name="softening_point"
-                  value={dadosFormulario.softening_point}
-                  onChange={handleChange}
-                />
-              </label>
-
-              <label>
-              Void volume (%)
-                <input
-                  type="number"
-                  name="void_volume"
-                  value={dadosFormulario.void_volume}
-                  onChange={handleChange}
-                />
-              </label>
-
-              <button className="buttonEnviar" type="submit">Fazer Previsão</button>
-            </form>
-            
-            )}  
-          
-            {mostrarImagens && (
-            <div>
-              {graficos.map((grafico) => (
-              <div key={grafico.nome} className="graficos">
-              <h2>{grafico.nome}</h2>
-              <ImagemGrafico url={grafico.imagem} />
+              <Link to="/" className="buttonHome">Home</Link>
             </div>
-          ))}  
-
-
-          </div>
-          )}
-
+            <div className="containerForm">
+              {exibirFormulario && (
+                 <form onSubmit={handleSubmit}>
+            
+                  <h1>Inputs</h1>
+                <label>
+                Bituminous matrix
+                  <select
+                    type="text"
+                    name="bituminous_matrix"
+                    value={dadosFormulario.bituminous_matrix}
+                    onChange={handleChange}>
+                      <option value='CAP-30/45'>CAP-30/45</option>
+                      <option value='CAP-50/70'>CAP-50/70</option>
+                  </select>
+                </label>
+                <label>
+                Pass through sieve #3/8 (%)
+                  <input
+                    type="number"
+                    name="sieve_3_8"
+                    value={dadosFormulario.sieve_3_8}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                Pass through sieve #4 (%)
+                  <input
+                    type="number"
+                    name="sieve_4"
+                    value={dadosFormulario.sieve_4}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                Pass through sieve #200 (%)
+                  <input
+                    type="number"
+                    name="sieve_200"
+                    value={dadosFormulario.sieve_200}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                Nominal maximum size (mm)
+                  <input
+                    type="number"
+                    name="nominal_maximum_size"
+                    value={dadosFormulario.nominal_maximum_size}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                Binder content (%)
+                  <input
+                    type="number"
+                    name="binder_content"
+                    value={dadosFormulario.binder_content}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                Binder viscosity ()
+                  <input
+                    type="number"
+                    name="binder_viscosity"
+                    value={dadosFormulario.binder_viscosity}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                Penetration
+                  <input
+                    type="number"
+                    name="penetration"
+                    value={dadosFormulario.penetration}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                Softening point
+                  <input
+                    type="number"
+                    name="softening_point"
+                    value={dadosFormulario.softening_point}
+                    onChange={handleChange}
+                  />
+                </label>
+                <label>
+                Void volume (%)
+                  <input
+                    type="number"
+                    name="void_volume"
+                    value={dadosFormulario.void_volume}
+                    onChange={handleChange}
+                  />
+                </label>
+                <button className="buttonEnviar" type="submit">Fazer Previsão</button>
+              </form>
+            
+              )}
+            
+              {mostrarImagens && (
+              <div>
+                {graficos.map((grafico) => (
+                <div key={grafico.nome} className="graficos">
+                <h2>{grafico.nome}</h2>
+                <ImagemGrafico url={grafico.imagem} />
+              </div>
+            ))}
+            </div>
+            )}
+            </div>
           </div>
         )
 };

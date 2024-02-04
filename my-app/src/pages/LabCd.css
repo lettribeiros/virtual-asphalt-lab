@@ -5,10 +5,18 @@
     font-family: Arial, sans-serif;
 }
 
-.containerForm {
-    display: flex;
+.containerLabCd {
     background-color: #0f0f33;
     min-height: 100vh;
+}
+
+.containerForm {
+    display: flex;
+}
+
+.headerLab {
+    display: flex;
+    justify-content: space-between;
 }
 
 .toggleFormButton {
@@ -73,10 +81,24 @@ label input, select {
     max-width: 90%;
 }
 
+.buttonHome {
+    margin: 10px;
+    color: #e9e9e9;
+    text-decoration: none;
+}
+
+.buttonHome:hover{
+    color: #D39820;
+}
+
 @media only screen and (min-width: 768px) {
     .toggleFormButton {
         display: none;
       }
+
+    form h1 {
+        margin: 0 20px;
+    }
   }
 
 @media only screen and (max-width: 767px) {
