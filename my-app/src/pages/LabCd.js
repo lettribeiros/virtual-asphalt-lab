@@ -109,7 +109,7 @@ const LabCd = () => {
         return (
           <div className="containerLabCd">
             <div className="headerLab">
-              <button className="toggleFormButton" onClick={() => setExibirFormulario(!exibirFormulario)}>
+              <button className="toggleFormButton" onClick={(e) => { e.stopPropagation(); setExibirFormulario(!exibirFormulario); }}>
                 <img src={exibirFormulario ? seta2 : seta1} alt="setas"></img>
               </button>
 
