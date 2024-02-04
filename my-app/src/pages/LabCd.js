@@ -28,7 +28,6 @@ const LabCd = () => {
       const [exibirFormulario, setExibirFormulario] = useState(true);
       const [carregando, setCarregando] = useState(false);
       const [erroMensagem, setErroMensagem] = useState(null);
-      const [isScrolling, setIsScrolling] = useState(false);
 
     
       const handleChange = (event) => {
@@ -107,40 +106,24 @@ const LabCd = () => {
               window.removeEventListener('resize', handleResize);
             };
           }, []);
-
-          useEffect(() => {
-            const handleScroll = () => {
-              setIsScrolling(true);
-          
-              setTimeout(() => {
-                setIsScrolling(false);
-              }, 150);
-            };
-          
-            window.addEventListener('scroll', handleScroll);
-          
-            return () => {
-              window.removeEventListener('scroll', handleScroll);
-            };
-          }, []);
-              
-
+            
         return (
           <div className="containerLabCd">
             <div className="headerLab">
-              <button
-               className="toggleFormButton" 
-               onTouchStart={(e) => {
-                if (!e.touches || e.touches.length === 1) {
-                  e.stopPropagation();
-                }
-              }}
-              onClick={() => {
-                if (!isScrolling){
-                  setExibirFormulario(!exibirFormulario);
-                }
-              }}
-               >
+            <button
+                className="toggleFormButton"
+                onTouchStart={(e) => {
+                  if (!e.touches || e.touches.length === 1) {
+                    e.stopPropagation();
+                  }
+                }}
+                onTouchMove={(e) => {
+                  if (!e.touches || e.touches.length === 1) {
+                    e.stopPropagation();
+                  }
+                }}
+                onClick={() => setExibirFormulario(!exibirFormulario)}
+            >
                 <img src={exibirFormulario ? seta2 : seta1} alt="setas"></img>
               </button>
 
