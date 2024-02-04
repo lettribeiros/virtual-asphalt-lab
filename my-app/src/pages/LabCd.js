@@ -26,6 +26,8 @@ const LabCd = () => {
       const [graficos, setGraficos] = useState(null);
       const [mostrarImagens, setMostrarImagens] = useState(false);
       const [exibirFormulario, setExibirFormulario] = useState(true);
+      const [carregando, setCarregando] = useState(false);
+      const [erroMensagem, setErroMensagem] = useState(null);
     
       const handleChange = (event) => {
         const { name, value } = event.target;
@@ -37,7 +39,7 @@ const LabCd = () => {
 
       const enviarDadosParaAPI = async (endpoint) => {
         try {
-          const url = `/${endpoint}?sieve_3_8=${dadosFormulario.sieve_3_8}&sieve_4=${dadosFormulario.sieve_4}&sieve_200=${dadosFormulario.sieve_200}&nominal_maximum_size=${dadosFormulario.nominal_maximum_size}&binder_content=${dadosFormulario.binder_content}&binder_viscosity=${dadosFormulario.binder_viscosity}&penetration=${dadosFormulario.penetration}&softening_point=${dadosFormulario.softening_point}&void_volume=${dadosFormulario.void_volume}`;
+          const url = `/${endpoint}?bituminous_matrix=${dadosFormulario.bituminous_matrix}&sieve_3_8=${dadosFormulario.sieve_3_8}&sieve_4=${dadosFormulario.sieve_4}&sieve_200=${dadosFormulario.sieve_200}&nominal_maximum_size=${dadosFormulario.nominal_maximum_size}&binder_content=${dadosFormulario.binder_content}&binder_viscosity=${dadosFormulario.binder_viscosity}&penetration=${dadosFormulario.penetration}&softening_point=${dadosFormulario.softening_point}&void_volume=${dadosFormulario.void_volume}`;
     
           const resposta = await api.get(url, { responseType: 'arraybuffer' });
           
@@ -66,6 +68,8 @@ const LabCd = () => {
 
           setGraficos([]);
           setMostrarImagens(false);
+          setCarregando(true);
+          setErroMensagem(null)
 
           await enviarDadosParaAPI('reduced-frequency');
           await enviarDadosParaAPI('low-frequency');
@@ -79,6 +83,9 @@ const LabCd = () => {
 
         } catch (erro) {
           console.error('Erro ao enviar dados para a API:', erro);
+          setErroMensagem('Não foi possível fazer essa previsão');
+        } finally {
+          setCarregando(false);
         }
     }
 
@@ -108,6 +115,7 @@ const LabCd = () => {
 
               <Link to="/" className="buttonHome">
                 <img src={home} alt="casa"></img>
+                Home
               </Link>
             </div>
             <div className="containerForm">
@@ -211,8 +219,11 @@ const LabCd = () => {
               </form>
             
               )}
+
+              {carregando && <div className="loading"></div>}
+              {erroMensagem && <div className="erro-mensagem">{erroMensagem}</div>}
             
-              {mostrarImagens && (
+              {mostrarImagens && !carregando &&(
               <div>
                 {graficos.map((grafico) => (
                 <div key={grafico.nome} className="graficos">
