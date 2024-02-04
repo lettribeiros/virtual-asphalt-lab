@@ -28,6 +28,8 @@ const LabCd = () => {
       const [exibirFormulario, setExibirFormulario] = useState(true);
       const [carregando, setCarregando] = useState(false);
       const [erroMensagem, setErroMensagem] = useState(null);
+      const [isScrolling, setIsScrolling] = useState(false);
+
     
       const handleChange = (event) => {
         const { name, value } = event.target;
@@ -106,6 +108,23 @@ const LabCd = () => {
             };
           }, []);
 
+          useEffect(() => {
+            const handleScroll = () => {
+              setIsScrolling(true);
+          
+              setTimeout(() => {
+                setIsScrolling(false);
+              }, 150);
+            };
+          
+            window.addEventListener('scroll', handleScroll);
+          
+            return () => {
+              window.removeEventListener('scroll', handleScroll);
+            };
+          }, []);
+              
+
         return (
           <div className="containerLabCd">
             <div className="headerLab">
@@ -116,7 +135,11 @@ const LabCd = () => {
                   e.stopPropagation();
                 }
               }}
-              onClick={() => setExibirFormulario(!exibirFormulario)}
+              onClick={() => {
+                if (!isScrolling){
+                  setExibirFormulario(!exibirFormulario);
+                }
+              }}
                >
                 <img src={exibirFormulario ? seta2 : seta1} alt="setas"></img>
               </button>
