@@ -28,6 +28,7 @@ const LabCd = () => {
       const [exibirFormulario, setExibirFormulario] = useState(true);
       const [carregando, setCarregando] = useState(false);
       const [erroMensagem, setErroMensagem] = useState(null);
+      const [formularioAberto, setFormularioAberto] = useState(true);
 
     
       const handleChange = (event) => {
@@ -78,7 +79,7 @@ const LabCd = () => {
           await enviarDadosParaAPI('high-frequency');
 
           if (window.innerWidth <= 767) {
-            setExibirFormulario(false);
+            setFormularioAberto(false);
           }
           setMostrarImagens(true);
 
@@ -110,20 +111,7 @@ const LabCd = () => {
         return (
           <div className="containerLabCd">
             <div className="headerLab">
-            <button
-                className="toggleFormButton"
-                onTouchStart={(e) => {
-                  if (!e.touches || e.touches.length === 1) {
-                    e.stopPropagation();
-                  }
-                }}
-                onTouchMove={(e) => {
-                  if (!e.touches || e.touches.length === 1) {
-                    e.stopPropagation();
-                  }
-                }}
-                onClick={() => setExibirFormulario(!exibirFormulario)}
-            >
+            <button className="toggleFormButton" onClick={() => setFormularioAberto(!formularioAberto)}>
                 <img src={exibirFormulario ? seta2 : seta1} alt="setas"></img>
               </button>
 
