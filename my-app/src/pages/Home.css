@@ -89,6 +89,7 @@ section p {
     cursor: pointer;
     transition: background-color 0.3s;
     font-weight: 800;
+    text-decoration: none;
 }
 
 .button:hover {

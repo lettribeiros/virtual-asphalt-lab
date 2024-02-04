@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import api from '../services/api'
 import ImagemGrafico from "../components/ImagemGrafico";
+import seta1 from "../assets/seta1.png"
+import seta2 from "../assets/seta2.png"
 import './LabCd.css'
+
 
 const LabCd = () => {
 
@@ -20,6 +23,7 @@ const LabCd = () => {
 
       const [graficos, setGraficos] = useState(null);
       const [mostrarImagens, setMostrarImagens] = useState(false);
+      const [exibirFormulario, setExibirFormulario] = useState(true);
     
       const handleChange = (event) => {
         const { name, value } = event.target;
@@ -66,6 +70,7 @@ const LabCd = () => {
           await enviarDadosParaAPI('intermediate-frequency');
           await enviarDadosParaAPI('high-frequency');
 
+          setExibirFormulario(false);
           setMostrarImagens(true);
 
         } catch (erro) {
@@ -73,10 +78,31 @@ const LabCd = () => {
         }
     }
 
+        useEffect(() => {
+          const handleResize = () => {
+
+            if (window.innerWidth <= 767) {
+              setExibirFormulario(false);
+            } else {
+              setExibirFormulario(true);
+            }
+          };
+
+            window.addEventListener('resize', handleResize);
+
+            return () => {
+              window.removeEventListener('resize', handleResize);
+            };
+          }, []);
+
         return (
           <div className="containerForm">
+            <button className="toggleFormButton" onClick={() => setExibirFormulario(!exibirFormulario)}>
+            <img src={exibirFormulario ? seta2 : seta1}></img>
+            </button>
+            {exibirFormulario && (  
                <form onSubmit={handleSubmit}>
-
+                
                 <h1>Inputs</h1>
 
               <label>
@@ -181,10 +207,11 @@ const LabCd = () => {
                 />
               </label>
 
-              <button type="submit">Fazer Previsão</button>
+              <button className="buttonEnviar" type="submit">Fazer Previsão</button>
             </form>
             
-
+            )}  
+          
             {mostrarImagens && (
             <div>
               {graficos.map((grafico) => (

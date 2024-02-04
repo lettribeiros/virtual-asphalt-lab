@@ -8,7 +8,7 @@ function Home() {
             <header>
                 <div>
                 <h1>Virtual Asphalt Lab</h1>
-                <p>Seu laboratório virtual para misturas asfálticas</p>
+                {/* <p>Seu laboratório virtual para misturas asfálticas</p> */}
                 </div>
                 <div className="nav-menu">
                     <a href="#descricao">Home</a>

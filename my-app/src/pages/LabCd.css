@@ -8,6 +8,18 @@
 .containerForm {
     display: flex;
     background-color: #0f0f33;
+    min-height: 100vh;
+}
+
+.toggleFormButton {
+    margin: 10px;
+    background: none;
+    border: none;
+    
+}
+
+.toggleFormButton img {
+    width: 30px;
 }
 
 form {
@@ -18,7 +30,7 @@ form {
 }
 
 form h1 {
-    margin: 20px 20px 0;
+    margin: 0 20px 0;
 }
 
 label {
@@ -28,7 +40,7 @@ label {
     width: 300px;
 }
 
-form button {
+.buttonEnviar {
     width: 150px;
     height: 40px;
     margin: 20px 0 20px 70px;
@@ -39,7 +51,7 @@ form button {
     cursor: pointer;
 }
 
-button:hover {
+.buttonEnviar:hover {
     background-color: #d4a649;
 }
 
@@ -53,10 +65,26 @@ label input, select {
 
 .graficos {
     color: #e9e9e9;
-    padding-top: 60px;
+    padding-top: 20px;
 }
 
 .graficos img {
     margin-top: 20px;
-    max-width: 1000px;
+    max-width: 90%;
+}
+
+@media only screen and (min-width: 768px) {
+    .toggleFormButton {
+      display: none;
+    }
+  }
+
+@media only screen and (max-width: 767px) {
+    .containerForm {
+        display: block;
+    }
+
+    .graficos {
+        margin: 20px;
+    }
 }
