@@ -70,7 +70,9 @@ const LabCd = () => {
           await enviarDadosParaAPI('intermediate-frequency');
           await enviarDadosParaAPI('high-frequency');
 
-          setExibirFormulario(false);
+          if (window.innerWidth <= 767) {
+            setExibirFormulario(false);
+          }
           setMostrarImagens(true);
 
         } catch (erro) {
@@ -98,7 +100,7 @@ const LabCd = () => {
         return (
           <div className="containerForm">
             <button className="toggleFormButton" onClick={() => setExibirFormulario(!exibirFormulario)}>
-            <img src={exibirFormulario ? seta2 : seta1}></img>
+            <img src={exibirFormulario ? seta2 : seta1} alt="setas"></img>
             </button>
             {exibirFormulario && (  
                <form onSubmit={handleSubmit}>
