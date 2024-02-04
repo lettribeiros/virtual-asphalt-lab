@@ -87,6 +87,10 @@ label input, select {
     text-decoration: none;
 }
 
+.buttonHome img {
+    width: 30px;
+}
+
 .buttonHome:hover{
     color: #D39820;
 }

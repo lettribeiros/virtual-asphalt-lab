@@ -4,6 +4,7 @@ import api from '../services/api'
 import ImagemGrafico from "../components/ImagemGrafico";
 import seta1 from "../assets/seta1.png"
 import seta2 from "../assets/seta2.png"
+import home from "../assets/home.png"
 import './LabCd.css'
 
 
@@ -105,7 +106,9 @@ const LabCd = () => {
                 <img src={exibirFormulario ? seta2 : seta1} alt="setas"></img>
               </button>
 
-              <Link to="/" className="buttonHome">Home</Link>
+              <Link to="/" className="buttonHome">
+                <img src={home} alt="casa"></img>
+              </Link>
             </div>
             <div className="containerForm">
               {exibirFormulario && (
