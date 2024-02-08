@@ -5,6 +5,7 @@ import ImagemGrafico from "../components/ImagemGrafico";
 import seta1 from "../assets/seta1.png";
 import seta2 from "../assets/seta2.png";
 import home from "../assets/home.png";
+import GeradorPDF from "../components/GeradorPDF";
 import "./LabCd.css";
 
 const LabCd = () => {
@@ -21,7 +22,7 @@ const LabCd = () => {
     void_volume: 3.6,
   });
 
-  const [graficos, setGraficos] = useState(null);
+  const [graficos, setGraficos] = useState([]);
   const [mostrarImagens, setMostrarImagens] = useState(false);
   const [exibirFormulario, setExibirFormulario] = useState(true);
   const [carregando, setCarregando] = useState(false);
@@ -222,16 +223,21 @@ const LabCd = () => {
         {carregando && <div className="loading"></div>}
         {erroMensagem && <div className="erro-mensagem">{erroMensagem}</div>}
 
-        {mostrarImagens && !carregando && (
-          <div>
-            {graficos.map((grafico) => (
-              <div key={grafico.nome} className="graficos">
-                <h2>{grafico.nome}</h2>
-                <ImagemGrafico url={grafico.imagem} />
-              </div>
-            ))}
-          </div>
-        )}
+        <div>
+          {mostrarImagens && !carregando && (
+            <div>
+              {graficos.map((grafico) => (
+                <div key={grafico.nome} className="graficos">
+                  <h2>{grafico.nome}</h2>
+                  <ImagemGrafico url={grafico.imagem} />
+                </div>
+              ))}
+            </div>
+          )}
+          {mostrarImagens && !carregando && (
+            <GeradorPDF dadosFormulario={dadosFormulario} imagens={graficos.map(grafico => grafico.imagem)} />
+          )}
+        </div>
       </div>
     </div>
   );
