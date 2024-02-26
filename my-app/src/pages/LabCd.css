@@ -6,7 +6,7 @@
 }
 
 .containerLabCd {
-    background-color: #0f0f33;
+    background-color: #27272b;
     min-height: 100vh;
 }
 
@@ -52,7 +52,7 @@ label {
     width: 150px;
     height: 40px;
     margin: 20px 0 20px 70px;
-    color: #0f0f33;
+    color: #27272b;
     background-color: #D39820;
     border: none;
     font-weight: 600;
@@ -68,7 +68,7 @@ label input, select {
     height: 30px;
     text-align: center;
     width: 200px;
-    color: #0f0f33;
+    color: #27272b;
 }
 
 .graficos {
