@@ -29,6 +29,7 @@ const LabCd = () => {
   const [erroMensagem, setErroMensagem] = useState(null);
   const [formularioAberto, setFormularioAberto] = useState(true);
 
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setDadosFormulario((prevDados) => ({
@@ -235,7 +236,7 @@ const LabCd = () => {
             </div>
           )}
           {mostrarImagens && !carregando && (
-            <GeradorPDF dadosFormulario={dadosFormulario} imagens={graficos.map(grafico => grafico.imagem)} />
+            <GeradorPDF dadosFormulario={dadosFormulario} graficos={graficos} />
           )}
         </div>
       </div>
