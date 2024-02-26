@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import home from "../assets/home.png";
-import "./LabDc.css";
+import "../styles/LabDc.css";
 
 const LabDc = () => {
     return (

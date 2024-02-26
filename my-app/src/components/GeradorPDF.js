@@ -1,6 +1,6 @@
 import React from 'react';
 import jsPDF from 'jspdf';
-import '../pages/LabCd.css'
+import '../styles/LabCd.css'
 
 const GeradorPDF = ({ dadosFormulario, graficos }) => {
   const gerarPDF = () => {

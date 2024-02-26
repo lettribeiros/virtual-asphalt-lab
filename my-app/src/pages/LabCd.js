@@ -6,7 +6,7 @@ import seta1 from "../assets/seta1.png";
 import seta2 from "../assets/seta2.png";
 import home from "../assets/home.png";
 import GeradorPDF from "../components/GeradorPDF";
-import "./LabCd.css";
+import "../styles/LabCd.css";
 
 const LabCd = () => {
   const [dadosFormulario, setDadosFormulario] = useState({
