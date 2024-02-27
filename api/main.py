@@ -15,7 +15,7 @@ CORS(app) # CORS para permitir requisições de qualquer origem (em produção, 
 limiter = Limiter(
     get_remote_address,
     app=app,
-    default_limits=["20 per minute", "1 per second"],
+    default_limits=["100 per minute", "5 per second"],
     storage_uri="memory://"
 ) # Limiter para limitar o número de requisições (em produção, deve-se alterar para valores aceitáveis, como 20 por minuto e 1 por segundo)
 cache = Cache(app, config={'CACHE_TYPE': 'simple'}) # Cache para armazenar os gráficos
