@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 html, body {
@@ -10,19 +10,38 @@ html, body {
 }
 
 body {
-    background-color: #e9e9e9;
+    background-color: #ffffff;
+    overflow-x: hidden;
 }
 
-header {
+.containerHome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-    background-color: #27272b;
-    color: #e9e9e9; 
-    height: 120px;
+#cabecalho {
+    margin: 0 auto;
+    display: flex;
+    width: 70%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+header {
+    background-color: #3c3c3c;
+    color: #fefefe; 
+    height: 80px;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 
 nav {
@@ -39,30 +58,165 @@ nav {
 
 .nav-menu a {
     text-decoration: none;
-    color: #e9e9e9;
+    color: #ffffff;
     padding: 10px;
     margin: 5px;
     transition: background-color 0.3s;
+    font-size: 20px;
 }
 
 .nav-menu a:hover {
     color: #D39820; 
 }
 
+.menu-popup {
+    display: none;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 2px 2px 2px #ffffff;
+}
+
+.menu-popup a {
+    color: #3c3c3c;
+}
+
+.intro {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-bottom: 200px;
+}
+
+.intro::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/tecnologia-asfalto.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#texto1 {
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 100px;
+    padding-top: 80px;
+    text-align: center;
+}
+
+.intro h4 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 35px;
+    padding-top: 45px;
+    margin-bottom: 5px;
+    color: #f2bf55;
+    text-shadow: 2px 2px 4px #3c3c3c;
+}
+
+.intro #p1 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 48px;
+    color: #ffffff;
+    margin-bottom: 60px;
+    text-shadow: 2px 2px 4px #3c3c3c;
+}
+
+.intro h3 {
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+    color: #ffffff;
+    line-height: 50px;
+    text-shadow: 2px 2px 4px #3c3c3c;
+}
+
+.intro h5 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 60px;
+    text-align: center;
+    text-shadow: 2px 2px 4px #3c3c3c;
+}
+
+.intro p {
+    font-size: 25px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #3c3c3c;
+}
+
+#descricao {
+    padding-top: 115px;
+    padding-bottom: 200px;
+    position: relative;
+}
+
+#descricao::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: -1;
+    pointer-events: none;
+}
 
 section {
     padding: 20px;
     flex-grow: 1;
+    width: 70%;
+    margin: 0 auto;
 }
 
 section h2 {
-    color: #0f0f33;
-    padding-bottom: 20px; 
+    font-weight: 700;
+    font-size: 48px;
+    color: #3c3c3c;
+    padding-bottom: 100px; 
 }
 
 section p {
+    font-size: 25px;
     line-height: 1.6;
-    color: #0f0f33;
+    color: #3c3c3c;
+}
+
+#lab {
+    padding-top: 115px;
+    padding-bottom: 300px;
+    position: relative;
+}
+
+#lab::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/corpo-de-prova.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#texto2 {
+    margin: 0 auto;
+    width: 70%;
 }
 
 .lab {
@@ -70,19 +224,24 @@ section p {
 }
 
 .lab h2 {
-    color: #0f0f33;
-    padding-bottom: 20px;  
+    font-weight: 700;
+    font-size: 48px;
+    color: #ffffff;
+    padding-bottom: 200px; 
+    text-shadow: 4px 4px 1px #3c3c3c; 
 }
 
 .button-container {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
+    padding-bottom: 60px;
 }
 
 .button {
-    background-color: #D39820; 
-    color: #27272b;
+    font-size: 20px;
+    background-color: #f2bf55; 
+    color: #3c3c3c;
     padding: 30px 60px;
     border: none;
     border-radius: 5px;
@@ -90,53 +249,116 @@ section p {
     transition: background-color 0.3s;
     font-weight: 800;
     text-decoration: none;
+    box-shadow: 8px 8px 10px #3c3c3c;
 }
 
 .button:hover {
-    background-color: #27272b;
-    color: #e9e9e9;
+    background-color: #3c3c3c;
+    color: #ffffff;
+    box-shadow: 8px 8px 10px #ffffff;
+}
+
+#about-us {
+    padding-top: 115px;
+    padding-bottom: 200px;
 }
 
 .about-us {
     padding: 20px;
     flex-grow: 1;
+    width: 70%;
+    margin: 0 auto;
 }
 
 .about-us h2 {
-    color: #0f0f33;
-    padding-bottom: 20px; 
+    font-weight: 700;
+    font-size: 48px;
+    color: #3c3c3c;
+    padding-bottom: 100px; 
 }
 
 .about-us p {
+    font-size: 25px;
     line-height: 1.6;
-    color: #0f0f33;
+    color: #3c3c3c;
 }
 
 footer {
-    background-color: #27272b; 
-    color: #e9e9e9; 
+    background-color: #3c3c3c; 
+    color: #fefefe; 
     height: 40px;
     width: 100%;
-    position: fixed;
+    position: relative;
     bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-footer h2 {
-    padding-bottom: 20px; 
-}
-
 @media screen and (max-width: 767px) {
+
+    #cabecalho h1{
+        font-size: 20px;
+    }
+
     .nav-menu {
         flex-direction: column;
         align-items: center;
     }
 
-    .nav-menu a {
-        padding: 0px;
+    .menu {
+        display: none;
+    }
 
+    .nav-menu a {
+        display: block;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .menu-icon {
+        display: block;
+        margin-right: 50px;
+        margin-left: 150px;
+    }
+
+    .menu-icon img {
+        width: 30px;
+    }
+
+    .menu-popup {
+        display: block;
+        margin-right: 40px;
+        margin-top: 60px;
+    }
+
+    .intro h4 {
+        font-size: 35px;
+    }
+    
+    .intro #p1 {
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+    
+    .intro h3 {
+        font-size: 20px;
+        line-height: 25px;
+    }
+    
+    .intro h5 {
+        font-size: 15px;
+        margin-bottom: 40px;
+        margin-top: 15px;
+    }
+    
+    .intro p {
+        font-size: 25px;
+        text-align: center;
+    }
+
+    #descricao section p {
+        font-size: 25px;
     }
 
     .button-container {
@@ -148,19 +370,53 @@ footer h2 {
         margin: 10px;
     }
 
-    footer {
-        position: relative;
+    #about-us p {
+        font-size: 25px;
     }
     
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1800px) {
+@media only screen and (min-width: 767px) and (max-width: 1180px){
+
+    .menu {
+        display: none;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .menu-icon {
+        display: block;
+        margin-right: 50px;
+        margin-left: 150px;
+    }
+
+    .menu-icon img {
+        width: 30px;
+    }
+
+    .menu-popup {
+        display: block;
+        margin-right: 170px;
+        margin-top: 60px;
+    }
+    
+}
+
+@media only screen and (min-width: 1180px) {
     .button {
         margin: 10px;
     }
 
-    footer {
-        position: relative;
+    .menu-icon {
+        display: none;
+    }
+
+    .menu-popup {
+        display: none;
     }
 
   }
